@@ -1,6 +1,7 @@
 body {
     height: 100vh;
     margin: 0;
+    color: black;
 }
 
 .header {
@@ -35,8 +36,58 @@ body {
 .content {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
 
 .first-row {
     display: flex;
+}
+
+.timer-container {
+    display: flex;
+    border: solid black 3px;
+    padding: 200px;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    border-radius: 40px;
+    background-color: rgb(158, 147, 255);
+}
+
+.timer {
+    font-size: 100px;
+    font-weight: 700;
+    color: white;
+}
+
+#start {
+    box-sizing: border-box;
+    width: 230px;
+    height: 80px;
+    background-color: white;
+    border-radius: 30px;
+    font-size: 40px;
+    font-weight: 700;
+    color: rgb(158, 147, 255);
+}
+
+.footer {
+    display: flex;
+    background-color: rgb(158, 147, 255);
+    height: 90px;
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+
+.footer .logo {
+    padding: 5px;
+    border: solid white 2px;
+    font-size: 20px;
 }
