@@ -4,18 +4,21 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I'll start in 5 minutes</title>
+    <title>5 More Minutes</title>
 </head>
 <body>
     <div class="header">
         <div class="logo">5+</div>
-        <div class="title">I'll start in 5 minutes</div>
+        <div class="title">5 More Minutes</div>
     </div>
     <div class="content">
         <div class="first-row">
             <div class="timer-container">   
                 <div class="timer">
-                    <button></button>
+                    <div class="category">
+                        <button class="ctgry-btn focus">Focus</button>
+                        <button class="ctgry-btn break">Break</button>
+                    </div>
                     <div class="time">25:00</div>
                     <button id="start">Start</button>
                 </div>
@@ -24,18 +27,10 @@
                 <div class="tasks-title">Tasks</div>
                 <div class="tasks">
                     <ul>
-                        <li>Thing 1</li>
-                        <li>Thing 2</li>
-                        <li>Thing 3</li>
+                        <li class="task-item">Task 1</li>
+                        <li><button class="add">Add New Task</button></li>
                     </ul>
                 </div> 
-            </div>
-        </div>
-        <div class="second-row">
-            <div class="notes">
-                <div class="notes-title">
-                    Notes
-                </div>
             </div>
         </div>
     </div>

@@ -2,11 +2,14 @@ body {
     height: 100vh;
     margin: 0;
     color: black;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
 }
 
 .header {
     display: flex;
-    background-color: rgb(158, 147, 255);
+    background-color: rgb(186, 179, 255);
     height: 90px;
     width: auto;
     margin-left: 0;
@@ -19,8 +22,8 @@ body {
 }
 
 .logo {
-    margin-left: 20px;
-    border: solid white 4px;
+    margin-left: 20px;  
+    border: solid white 2px;
     padding: 10px;
     border-radius: 40px;
 }
@@ -28,7 +31,7 @@ body {
 .title {
     margin-right: 20px;
     border: solid white 2px;
-    padding: 5px;
+    padding: 8px;
     border-radius: 10px;
 
 }
@@ -45,13 +48,31 @@ body {
 
 .timer-container {
     display: flex;
-    border: solid black 3px;
+    border: solid black 0;
     padding: 200px;
+    padding-top: 150px;
+    height: 290px;
     justify-content: center;
     align-items: center;
     margin: 50px;
     border-radius: 40px;
-    background-color: rgb(158, 147, 255);
+    background-color: rgb(28, 28, 63);
+}
+
+.category {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ctgry-btn {
+    color: white;
+    background-color: rgb(28, 28, 63);
+    border: solid white 2px;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 .timer {
@@ -66,14 +87,63 @@ body {
     height: 80px;
     background-color: white;
     border-radius: 30px;
+    border: 0;
     font-size: 40px;
     font-weight: 700;
-    color: rgb(158, 147, 255);
+    color: rgb(28, 28, 63);
+}
+
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    margin: 50px;
+    background-color: rgb(186, 179, 255);
+    align-items: center;
+    border-radius: 40px;
+}
+
+.tasks-title {
+    font-size: 50px;
+    color: white;
+    font-weight: 700;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.task-item {
+    color: white;
+    font-size: 30px;
+    border: solid white 2px;
+    text-align: center;
+    padding: 7px;
+    padding-left: 200px;
+    padding-right: 200px;
+    border-radius: 25px;
+    margin: 7px;
+}
+
+.add {
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    border: 0;
+    text-align: center;
+    padding: 7px;
+    padding-left: 200px;
+    padding-right: 200px;
+    border-radius: 25px;
+    margin: 7px;
+    background-color: rgb(158, 152, 212);
 }
 
 .footer {
     display: flex;
-    background-color: rgb(158, 147, 255);
+    background-color: rgb(186, 179, 255);
     height: 90px;
     width: auto;
     margin-left: 0;
@@ -91,3 +161,5 @@ body {
     border: solid white 2px;
     font-size: 20px;
 }
+
+
