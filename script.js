@@ -1,4 +1,4 @@
-const numRandomEvents = 4;
+const numRandomEvents = 6;
 
 
 // get's a random integer between 1 and the number of random events
@@ -6,7 +6,7 @@ let getRandomInt = function () {
     return Math.floor(Math.random() * (numRandomEvents) + 1);
 }
 
-let randomEventNumber = getRandomInt();
+let randomEventNumber = 5;
 
 const startRedirect = document.querySelector(".start-redirect")
 const timerDisplay = document.querySelector(".time");
@@ -16,6 +16,7 @@ const breakBtn = document.querySelector(".break");
 const btns = document.querySelectorAll(".btn");
 const configFocusBtn = document.querySelector(".config-focus");
 const configBreakBtn = document.querySelector(".config-break");
+const addBtn = document.querySelector(".add");
 
 btns.forEach((btn) => {
     btn.addEventListener("mouseenter", () => {
@@ -179,7 +180,9 @@ configBreakBtn.addEventListener("click", () => {
 
 // Tasks code
 
-
+addBtn.addEventListener("click", () =>{
+    createTask();
+});
 
 function createTask(){
     const taskManager = document.querySelector(".tasks ul");
@@ -265,6 +268,14 @@ const toSnake = function() {
     startRedirect.setAttribute("href", "snake-game.html");
 }
 
+const toPong = function() {
+    startRedirect.setAttribute("href", "pong.html");
+}
+
+const toYoutube = function() {
+    startRedirect.setAttribute("href", "https://www.youtube.com/");
+}
+
 const chooseRedirect = function() {
     if (randomEventNumber == 2) {
         toWordle();
@@ -272,6 +283,10 @@ const chooseRedirect = function() {
         toInstagram();
     } else if (randomEventNumber == 4) {
         toSnake();
+    } else if (randomEventNumber == 5) {
+        toPong();
+    } else if (randomEventNumber == 6) {
+        toYoutube();
     }
 }
 
