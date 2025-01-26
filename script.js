@@ -149,6 +149,7 @@ let chooseBreakTime = function() {
 
 startBtn.addEventListener("click", () => {
     if (randomEventNumber == 1 && isPaused) {
+        startRedirect.removeAttribute("href");
         toggleStartPause();
     } else if (!isPaused) {
         toggleStartPause();
@@ -184,6 +185,7 @@ configBreakBtn.addEventListener("click", () => {
 
 addBtn.addEventListener("click", () =>{
     if (randomEventNumber == 1) {
+        addRedirect.removeAttribute("href");
         createTask();
     } else {
         addRedirect.removeAttribute("href");
