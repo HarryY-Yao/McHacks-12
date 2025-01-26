@@ -1,8 +1,16 @@
+const numRandomEvents = 5;
+
+
+
+
+
 const timerDisplay = document.querySelector(".time");
 const startBtn = document.querySelector("#start");
 const focusBtn = document.querySelector(".focus");
 const breakBtn = document.querySelector(".break");
 const btns = document.querySelectorAll(".btn");
+const configFocusBtn = document.querySelector(".config-focus");
+const configBreakBtn = document.querySelector(".config-break");
 
 btns.forEach((btn) => {
     btn.addEventListener("mouseenter", () => {
@@ -26,7 +34,9 @@ btns.forEach((btn) => {
 // timer code
 
 let timer;
-let minutes = 25;
+let focusTime = 25;
+let breakTime = 5;
+let minutes = focusTime;
 let seconds = 0;
 let isPaused = true;
 let isFocus = true;
@@ -43,9 +53,11 @@ let updateTime = function() {
         clearInterval(timer);
         if (isFocus) {
         alert("Time's up! You deserve a break :)");
+        breakResetTime();
 
         } else {
             alert("Time to focus!");
+            focusResetTime();
         }
     } else if (!isPaused) {
         if (seconds > 0) {
@@ -78,7 +90,7 @@ let focusResetTime = function() {
     clearInterval(timer);
     isFocus = true;
     isBreak = false;
-    minutes = 25;
+    minutes = focusTime;
     seconds = 0;
     isPaused = true;
     timerDisplay.textContent = formatTime(minutes, seconds);
@@ -89,11 +101,43 @@ let breakResetTime = function() {
     clearInterval(timer);
     isFocus = false;
     isBreak = true;
-    minutes = 5;
+    minutes = breakTime;
     seconds = 0;
     isPaused = true;
     timerDisplay.textContent = formatTime(minutes, seconds);
     startBtn.textContent = "Start"
+}
+
+let chooseFocusTime = function() {
+    const newFocusTime = prompt("Enter new focus time in minutes: ");
+    if (!isNaN(newFocusTime) && newFocusTime > 0) {
+        enteredtime = parseInt(newFocusTime);
+        focusTime = newFocusTime;
+        
+        if (isFocus) {
+            minutes = focusTime;
+            seconds = 0;
+            timerDisplay.textContent = formatTime(minutes, seconds);
+        }
+    } else {
+        alert('Invalid input. Please enter a valid number greater than 0');
+    }
+}
+
+let chooseBreakTime = function() {
+    const newBreakTime = prompt("Enter new break time in minutes: ");
+    if (!isNaN(newBreakTime) && newBreakTime > 0) {
+        enteredtime = parseInt(newBreakTime);
+        breakTime = newBreakTime;
+        
+        if (isBreak) {
+            minutes = breakTime;
+            seconds = 0;
+            timerDisplay.textContent = formatTime(minutes, seconds);
+        }
+    } else {
+        alert('Invalid input. Please enter a valid number greater than 0');
+    }
 }
 
 startBtn.addEventListener("click", () => {
@@ -108,3 +152,10 @@ breakBtn.addEventListener("click", () => {
     breakResetTime();
 });
 
+configFocusBtn.addEventListener("click", () => {
+    chooseFocusTime();
+});
+
+configBreakBtn.addEventListener("click", () => {
+    chooseBreakTime();
+});
