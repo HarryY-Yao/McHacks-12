@@ -1,4 +1,4 @@
-const numRandomEvents = 3;
+const numRandomEvents = 4;
 
 
 // get's a random integer between 1 and the number of random events
@@ -146,7 +146,7 @@ let chooseBreakTime = function() {
 }
 
 startBtn.addEventListener("click", () => {
-    if (randomEventNumber == 1) {
+    if (randomEventNumber == 1 && isPaused) {
         toggleStartPause();
     } else if (!isPaused) {
         toggleStartPause();
@@ -154,6 +154,9 @@ startBtn.addEventListener("click", () => {
         startRedirect.removeAttribute("href");
         randomEventNumber = getRandomInt();
         chooseRedirect();
+        if (randomEventNumber == 1 && isPaused) {
+            toggleStartPause();
+        }
         console.log(randomEventNumber);
     }
 });
@@ -258,14 +261,18 @@ const toInstagram = function() {
     startRedirect.setAttribute("href","https://www.instagram.com/");
 }
 
+const toSnake = function() {
+    startRedirect.setAttribute("href", "snake-game.html");
+}
+
 const chooseRedirect = function() {
     if (randomEventNumber == 2) {
         toWordle();
     } else if (randomEventNumber == 3) {
         toInstagram();
+    } else if (randomEventNumber == 4) {
+        toSnake();
     }
 }
-
-chooseRedirect();
 
 console.log(randomEventNumber);
