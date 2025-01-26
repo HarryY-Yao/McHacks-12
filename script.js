@@ -6,8 +6,9 @@ let getRandomInt = function (numRandomEvents) {
     return Math.floor(Math.random() * (numRandomEvents) + 1);
 }
 
+let randomEventNumber = 1;
 
-
+const startRedirect = document.querySelector(".start-redirect")
 const timerDisplay = document.querySelector(".time");
 const startBtn = document.querySelector("#start");
 const focusBtn = document.querySelector(".focus");
@@ -145,7 +146,9 @@ let chooseBreakTime = function() {
 }
 
 startBtn.addEventListener("click", () => {
+    if (randomEventNumber == 1) {
     toggleStartPause();
+    }
 });
 
 focusBtn.addEventListener("click", () => {
@@ -163,3 +166,12 @@ configFocusBtn.addEventListener("click", () => {
 configBreakBtn.addEventListener("click", () => {
     chooseBreakTime();
 });
+
+
+// Productivity breaker
+
+let toWordle = function() {
+    startRedirect.setAttribute("href", "https://www.nytimes.com/games/wordle/index.html");
+}
+
+let 
