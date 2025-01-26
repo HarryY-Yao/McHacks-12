@@ -23,6 +23,8 @@ btns.forEach((btn) => {
 
 });
 
+// timer code
+
 let timer;
 let minutes = 25;
 let seconds = 0;
