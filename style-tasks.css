@@ -1,3 +1,18 @@
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    border: solid white 2px;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 25px;
+    margin: 7px;
+    flex: 1; 
+}
+
 .text-item {
     display: flex;
     align-items: center;
@@ -43,14 +58,14 @@
 
 .hours-select option,
 .minutes-select option {
-    background-color: rgb(186, 179, 255); /* Default background color of options */
-    color: white; /* Default text color */
+    background-color: rgb(186, 179, 255);
+    color: white;
 }
 
 .hours-select option:hover,
 .minutes-select option:hover {
-    background-color: #007bff; /* Highlight background for hovered option */
-    color: white; /* Highlighted text color */
+    background-color: #007bff;
+    color: white;
 }
 
 
@@ -69,4 +84,37 @@
     padding-top: 5%;
     border: transparent;
     border-radius: 5px;
+}
+
+.task-item:hover {
+    background-color: white;
+    content: "press to delete";
+    color:black;
+}
+
+.task-item:hover .close-button{
+    color: red;
+}
+
+
+.close-button {
+    height: 50px;
+    padding: 5px 10px;
+    margin-right: 5%;
+    color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 10%;
+    background-color: transparent;
+    font-size: 30px;
+}
+
+.task-text2 {
+    flex: 1;
+    text-align: left;
+    padding: 10px; 
+    margin: 0;
+    word-wrap: break-word; 
+    overflow: hidden; 
 }

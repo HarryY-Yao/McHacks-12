@@ -250,7 +250,19 @@ function createTask(){
             newTask.textContent = `${taskName} - ${formattedTime}`;
     
             newTask.classList.remove("text-item");
+            newTask.classList.remove("task-text");
             newTask.classList.add("task-item");
+            newTask.classList.add("task-text2");
+    
+            const closeButton = document.createElement("button");
+            closeButton.classList.add("close-button");
+            closeButton.textContent = "X";
+    
+            closeButton.addEventListener("click", () => {
+                newTask.remove();
+            })
+    
+            newTask.appendChild(closeButton);
         });
     
         newTask.appendChild(taskTextarea);
