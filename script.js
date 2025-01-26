@@ -1,12 +1,12 @@
-const numRandomEvents = 5;
+const numRandomEvents = 3;
 
 
 // get's a random integer between 1 and the number of random events
-let getRandomInt = function (numRandomEvents) {
+let getRandomInt = function () {
     return Math.floor(Math.random() * (numRandomEvents) + 1);
 }
 
-let randomEventNumber = 1;
+let randomEventNumber = getRandomInt();
 
 const startRedirect = document.querySelector(".start-redirect")
 const timerDisplay = document.querySelector(".time");
@@ -146,8 +146,16 @@ let chooseBreakTime = function() {
 }
 
 startBtn.addEventListener("click", () => {
-    toggleStartPause();
-
+    if (randomEventNumber == 1) {
+        toggleStartPause();
+    } else if (!isPaused) {
+        toggleStartPause();
+    } else {
+        startRedirect.removeAttribute("href");
+        randomEventNumber = getRandomInt();
+        chooseRedirect();
+        console.log(randomEventNumber);
+    }
 });
 
 focusBtn.addEventListener("click", () => {
@@ -242,7 +250,22 @@ function createTask(){
 
 // Productivity breaker
 
-let toWordle = function() {
+const toWordle = function() {
     startRedirect.setAttribute("href", "https://www.nytimes.com/games/wordle/index.html");
 }
 
+const toInstagram = function() {
+    startRedirect.setAttribute("href","https://www.instagram.com/");
+}
+
+const chooseRedirect = function() {
+    if (randomEventNumber == 2) {
+        toWordle();
+    } else if (randomEventNumber == 3) {
+        toInstagram();
+    }
+}
+
+chooseRedirect();
+
+console.log(randomEventNumber);
