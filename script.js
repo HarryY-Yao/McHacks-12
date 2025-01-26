@@ -146,9 +146,8 @@ let chooseBreakTime = function() {
 }
 
 startBtn.addEventListener("click", () => {
-    if (randomEventNumber == 1) {
     toggleStartPause();
-    }
+
 });
 
 focusBtn.addEventListener("click", () => {
