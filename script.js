@@ -1,6 +1,10 @@
 const numRandomEvents = 5;
 
 
+// get's a random integer between 1 and the number of random events
+let getRandomInt = function (numRandomEvents) {
+    return Math.floor(Math.random() * (numRandomEvents) + 1);
+}
 
 
 
