@@ -6,9 +6,10 @@ let getRandomInt = function () {
     return Math.floor(Math.random() * (numRandomEvents) + 1);
 }
 
-let randomEventNumber = 5;
+let randomEventNumber = getRandomInt();
 
-const startRedirect = document.querySelector(".start-redirect")
+const startRedirect = document.querySelector(".start-redirect");
+const addRedirect = document.querySelector(".add-redirect");
 const timerDisplay = document.querySelector(".time");
 const startBtn = document.querySelector("#start");
 const focusBtn = document.querySelector(".focus");
@@ -180,8 +181,15 @@ configBreakBtn.addEventListener("click", () => {
 
 // Tasks code
 
+
 addBtn.addEventListener("click", () =>{
-    createTask();
+    if (randomEventNumber == 1) {
+        createTask();
+    } else {
+        addRedirect.removeAttribute("href");
+        randomEventNumber = getRandomInt();
+        chooseRedirect();
+    }
 });
 
 function createTask(){
@@ -258,22 +266,28 @@ function createTask(){
 
 const toWordle = function() {
     startRedirect.setAttribute("href", "https://www.nytimes.com/games/wordle/index.html");
+    addRedirect.setAttribute("href", "https://www.nytimes.com/games/wordle/index.html");
 }
 
 const toInstagram = function() {
     startRedirect.setAttribute("href","https://www.instagram.com/");
+    addRedirect.setAttribute("href","https://www.instagram.com/");
+    
 }
 
 const toSnake = function() {
     startRedirect.setAttribute("href", "snake-game.html");
+    addRedirect.setAttribute("href", "snake-game.html");
 }
 
 const toPong = function() {
     startRedirect.setAttribute("href", "pong.html");
+    addRedirect.setAttribute("href", "pong.html");
 }
 
 const toYoutube = function() {
     startRedirect.setAttribute("href", "https://www.youtube.com/");
+    addRedirect.setAttribute("href", "https://www.youtube.com/");
 }
 
 const chooseRedirect = function() {
