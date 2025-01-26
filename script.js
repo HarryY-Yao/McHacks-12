@@ -166,6 +166,79 @@ configBreakBtn.addEventListener("click", () => {
     chooseBreakTime();
 });
 
+// Tasks code
+
+
+
+function createTask(){
+    const taskManager = document.querySelector(".tasks ul");
+
+    const newTask = document.createElement("li");
+    newTask.classList.add("text-item");
+
+    const taskTextarea = document.createElement("textarea");
+    taskTextarea.placeholder = "Enter task";
+    taskTextarea.classList.add("task-text");
+
+    const timeContainer = document.createElement("div");
+    timeContainer.classList.add("time-container");
+
+    const hoursSelect = document.createElement("select");
+    hoursSelect.classList.add("hours-select");
+    for (let i = 0; i <= 23; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.textContent = i;
+        hoursSelect.appendChild(option);
+    }
+
+    const colonSeparator = document.createElement("span");
+    colonSeparator.textContent = ":";
+    colonSeparator.classList.add("colon-separator");
+
+    const minutesSelect = document.createElement("select");
+    minutesSelect.classList.add("minutes-select");
+    for (let i = 0; i <= 59; i+=5) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.textContent = i < 10 ? `0${i}` : i;
+        minutesSelect.appendChild(option);
+    }
+
+    timeContainer.appendChild(hoursSelect);
+    timeContainer.appendChild(colonSeparator);
+    timeContainer.appendChild(minutesSelect);
+    
+    const checkButton = document.createElement("button");
+        checkButton.textContent = "✔";
+        checkButton.classList.add("check-button");
+        checkButton.style.backgroundColor = "green";
+    
+        checkButton.addEventListener("click", () => {
+            const taskName = taskTextarea.value.trim(); // Trim to avoid empty spaces
+            const hours = hoursSelect.value || "0"; // Default "0" if no selection
+            const minutes = minutesSelect.value || "00"; // Default "00"
+    
+            if (!taskName) {
+                alert("Task name cannot be empty!");
+                return;
+            }
+    
+            const formattedTime = `${hours}:${minutes.padStart(2, "0")}`;
+            newTask.textContent = `${taskName} - ${formattedTime}`;
+    
+            newTask.classList.remove("text-item");
+            newTask.classList.add("task-item");
+        });
+    
+        newTask.appendChild(taskTextarea);
+        newTask.appendChild(timeContainer);
+        newTask.appendChild(checkButton);
+    
+        taskManager.insertBefore(newTask, taskManager.firstChild);
+}
+
+
 
 // Productivity breaker
 
@@ -173,4 +246,3 @@ let toWordle = function() {
     startRedirect.setAttribute("href", "https://www.nytimes.com/games/wordle/index.html");
 }
 
-let 
